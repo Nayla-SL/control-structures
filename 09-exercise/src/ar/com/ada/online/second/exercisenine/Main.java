@@ -20,7 +20,7 @@ public class Main {
         double initialWage;
         double aditional;
         double finalWage;
-        boolean answer = true;
+        boolean answer;
 
         Scanner keyboard = new Scanner(System.in);
 
@@ -29,12 +29,16 @@ public class Main {
 
 
         switch (policyType) {
+            case "A":
+                initialWage = 1200;
+                break;
             case "B":
                 initialWage = 950;
                 break;
             default:
-                initialWage = 1200;
-                break;
+                initialWage = 0;
+                System.out.println("Poliza no permitida");
+                System.exit(0);
         }
 
         finalWage = initialWage;
@@ -48,31 +52,28 @@ public class Main {
         if (answer) {
             aditional = initialWage * 0.10;
             finalWage = finalWage + aditional;
-        } else {
-            finalWage = finalWage;
         }
+
         System.out.println("¿Utiliza lentes?");
         answer = keyboard.nextBoolean();
         if (answer) {
             aditional = initialWage * 0.05;
             finalWage = finalWage + aditional;
-        } else {
-            finalWage = finalWage;
         }
+
         System.out.println("¿Padece alguna enfermedad - como deficiencia cardíaca o diabetes?");
         answer = keyboard.nextBoolean();
         if (answer) {
             aditional = initialWage * 0.05;
             finalWage = finalWage + aditional;
-        } else {
-            finalWage = finalWage;
         }
+
         System.out.println("¿Tiene más de 40 años?");
         answer = keyboard.nextBoolean();
         if (answer) {
             aditional = initialWage * 0.20;
             finalWage = finalWage + aditional;
-        } else if (answer == false) {
+        } else {
             aditional = initialWage * 0.10;
             finalWage = finalWage + aditional;
         }
